@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
             data.characters.forEach(character => {
                 const span = document.createElement('span');
                 span.className = 'custom-char';
-                span.textContent = character.char;
+                span.innerHTML = character.graphic;
+                
+                const textElement = document.createElement('span');
+                textElement.className = 'kanji';
+                textElement.innerHTML = character.char;
 
-                const svgWrapper = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                svgWrapper.setAttribute('viewBox', '0 0 100 100');
-                svgWrapper.innerHTML = character.graphic;
-
-                span.appendChild(svgWrapper);
+                span.appendChild(textElement);
                 container.appendChild(span);
             });
         });
@@ -21,4 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function toggleCustomClass() {
     const container = document.getElementById('text-container');
     container.classList.toggle('custom-class');
+    container.classList.toggle('hide-text');
+    
+    // 疑似漢字表示のトグルに合わせて漢字を消す
+    document.querySelectorAll('.kanji').forEach(element => {
+        element.style.display = container.classList.contains('hide-text') ? 'none' : 'inline';
+    });
 }
