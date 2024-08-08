@@ -1,5 +1,6 @@
 .text-container {
     font-size: 24px;
+    position: relative;
 }
 
 .custom-char {
@@ -7,7 +8,6 @@
     width: 1em;
     height: 1em;
     vertical-align: middle;
-    text-align: center;
     position: relative;
 }
 
@@ -22,8 +22,4 @@
 
 .custom-class .custom-char svg {
     display: block; /* クラスが適用された場合に表示 */
-}
-
-.custom-class .custom-char::before {
-    content: '';
 }
