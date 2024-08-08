@@ -1,0 +1,29 @@
+.text-container {
+    font-size: 24px;
+}
+
+.custom-char {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+
+.custom-char svg {
+    width: 100%;
+    height: 100%;
+    display: none; /* 初期は非表示 */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.custom-class .custom-char svg {
+    display: block; /* クラスが適用された場合に表示 */
+}
+
+.custom-class .custom-char::before {
+    content: '';
+}
